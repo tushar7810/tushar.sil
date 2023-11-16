@@ -32,20 +32,20 @@ masterPlay.addEventListener('click', ()=>{
     }
 })
 audioElement.addEventListener('timeupdate',()=>{
-    // console.log('timeupdate');
+    console.log('timeupdate');
     progress = parseInt((audioElement.currentTime/audioElement.duration)*100);
-    // console.log(progress);
+    console.log(progress);
     myProgressBar.value = progress;
 })
 
 myProgressBar.addEventListener('change', ()=>{
     audioElement.currentTime = (myProgressBar.value * audioElement.duration) / 100;
 })
-// songItems.forEach((element,i)=> {
-//     console.log(element, i)
-//     element.getElementsByTagName("img")[0].src = songs[i].coverPath;
-//     element.getElementsByClassName('span')[0].innerText = songs[i].songName;
-// });
+songItems.forEach((element,i)=> {
+    console.log(element, i)
+    element.getElementsByTagName("img")[0].src = songs[i].coverPath;
+    element.getElementsByClassName('span')[0].innerText = songs[i].songName;
+});
 const makeAllPlays = ()=>{
     Array.from(document.getElementsByClassName('songitemPlay')).forEach((element)=>{
         element.classList.remove('fa-pause-circle');
